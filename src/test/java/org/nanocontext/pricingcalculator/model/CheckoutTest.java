@@ -46,7 +46,7 @@ public class CheckoutTest extends AbstractTest {
     public Object[][] testDataProvider() {
         return new Object[][] {
                 {Arrays.asList(), 0},
-                {Arrays.asList("1983", "4900", "8873", "6732", "0923", "1983", "1983", "1983"), 2838},
+                {Arrays.asList("1983", "4900", "8873", "6732", "0923", "1983", "1983", "1983"), 3037},
         };
     }
 
@@ -85,7 +85,7 @@ public class CheckoutTest extends AbstractTest {
             PricingStrategies pricingStrategies = new PricingStrategies();
 
             // Create the BOGO for toothbrushes
-            List<Float> discountSchedule = Arrays.asList(Float.valueOf(1), Float.valueOf(0));
+            List<Float> discountSchedule = Arrays.asList(Float.valueOf(1), Float.valueOf(1), Float.valueOf(0));
             Set<StockKeepingUnit> applicableSkus = new HashSet<>();
             StockKeepingUnit stockKeepingUnit = stockKeepingUnits.find("1983");
             if (stockKeepingUnit == null)

@@ -38,26 +38,3 @@ Sequence
 2.) Submit ShoppingCart to Checkout
   a.) Run all available PricingStrategy on the ShoppingCart
   b.) Select collection of PricingStrategy to optimize for lowest total price
-
-Caveat
-I believe that the total for the example given is incorrect. The "buy one, get one" for toothbrush
-should be applied twice and it is only applied once?
- Checkout c = new Checkout(todaysScheme);
- c.scan(“1983”); // toothbrush (199)
- c.scan(“4900”); // salsa (349)
- c.scan(“8873”); // milk (249)
- c.scan(“6732”); // chips (249)
- c.scan(“0923”); // wine (1692 = 1549 * 1.0925)
- c.scan(“1983”); // toothbrush (199)
- c.scan(“1983”); // toothbrush (199)
- c.scan(“1983”); // toothbrush (199)
- int cents = c.getTotal();
- assert 3037 == cents
-
-should evaluate as :
- 398 (items 1983 -> 4 instances into 2 BOGO)
- 499 (items 4900 and 6732 Bundle)
- 1692 (item 0923 with tax)
- 249 (item 8873)
-
- 2838 (total)
